@@ -16,7 +16,7 @@
  */
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {DOCUMENT} from '@angular/common';
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, TestBed, waitForAsync} from '@angular/core/testing';
 import {BehaviorSubject} from 'rxjs';
 
@@ -109,7 +109,7 @@ describe('ColorThemeLoader', () => {
 });
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template:
       '<workflow-graph-color-theme-loader #loader></workflow-graph-color-theme-loader>',
   jit: true,

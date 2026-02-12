@@ -16,7 +16,7 @@
  */
 
 import {CommonModule} from '@angular/common';
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -32,7 +32,7 @@ import {ShortcutService} from './shortcut.service';
  * A11y Help Center Dialog
  */
 @Component({
-  selector: 'a11y-help-center',
+  changeDetection: ChangeDetectionStrategy.Eager,selector: 'a11y-help-center',
   styleUrls: ['a11y_help_center.scss'],
   templateUrl: 'a11y_help_center.ng.html',
   standalone: true,

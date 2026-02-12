@@ -16,7 +16,7 @@
  */
 
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {Component, Input} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 import {MatSelectHarness} from '@angular/material/select/testing';
 
@@ -148,7 +148,7 @@ describe('Iteration Selector', () => {
 });
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template: `
       <div class="container">
         <ai-dag-iteration-selector

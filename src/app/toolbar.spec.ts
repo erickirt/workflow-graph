@@ -17,7 +17,7 @@
 
 import {HarnessLoader} from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {Component, TemplateRef, ViewChild} from '@angular/core';
+import {Component, TemplateRef, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ScreenshotTest} from '../screenshot_test';
@@ -162,7 +162,7 @@ describe('DagToolbar', () => {
 });
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template: `
     <div class="container">
       <ai-dag-toolbar #dagToolbar

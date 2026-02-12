@@ -17,7 +17,7 @@
 
 import {CdkDragMove, DragDropModule} from '@angular/cdk/drag-drop';
 import {CommonModule} from '@angular/common';
-import {Component, ElementRef, EventEmitter, Input, NgModule, OnChanges, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, NgModule, OnChanges, OnInit, Output, TemplateRef, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
@@ -27,7 +27,7 @@ import {CustomNode, DagGroup, DagNode, isCustomNode, Point, type SelectedNode} f
 
 /** Minimap component for Workflow Graph. */
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   selector: 'minimap',
   styleUrls: [
     'minimap.scss',

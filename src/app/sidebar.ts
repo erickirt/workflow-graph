@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import {Component, Input, NgModule} from '@angular/core';
+import {Component, Input, NgModule, ChangeDetectionStrategy} from '@angular/core';
 
 import {MinimapPosition} from './data_types_internal';
 
@@ -31,7 +31,7 @@ export {type MinimapPosition};
  * set `minimapPosition` to `'bottom'` to avoid overlapping content.
  */
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   selector: 'ai-dag-sidebar',
   styleUrls: ['sidebar.scss'],
   templateUrl: 'sidebar.ng.html',

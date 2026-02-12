@@ -16,7 +16,7 @@
  */
 
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {GENERIC_ARTIFACT_ICON, IconConfig} from './data_types_internal';
@@ -262,7 +262,7 @@ describe('DAG Node', () => {
 });
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template: `
     <div class="container">
       <ai-dag-node #node

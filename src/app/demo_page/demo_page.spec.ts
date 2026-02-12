@@ -16,7 +16,7 @@
  */
 
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {Component} from '@angular/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, TestBed, waitForAsync} from '@angular/core/testing';
 import {MatNativeSelectHarness} from '@angular/material/input/testing';
 
@@ -133,7 +133,7 @@ describe('Demo Page', () => {
 
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template:
       `<div style="height: 1200px;">
         <dag-demo-page />

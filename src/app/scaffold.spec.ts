@@ -16,7 +16,7 @@
  */
 
 import {NgIf} from '@angular/common';
-import {Component} from '@angular/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {ScreenshotTest} from '../screenshot_test';
@@ -43,7 +43,7 @@ const FAKE_EDGES: DagEdge[] = [
 ];
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template: `
     <ai-dag-scaffold [features]="features">
       <ai-dag-toolbar *ngIf="includeToolbar" [nodes]="nodes"></ai-dag-toolbar>

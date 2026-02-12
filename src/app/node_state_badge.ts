@@ -16,7 +16,7 @@
  */
 
 import {CommonModule} from '@angular/common';
-import { Component, Input, NgModule, inject } from '@angular/core';
+import { Component, Input, NgModule, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import {ColorThemeLoader} from './color_theme_loader';
 import {DEFAULT_THEME, IconConfig, isNoState, type NodeState} from './data_types_internal';
@@ -26,7 +26,7 @@ import {WorkflowGraphIconModule} from './icon_wrapper';
 
 /** Renders a badge with an icon and description of a node state. */
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   selector: 'ai-dag-node-state-badge',
   styleUrls: ['node_state_badge.scss'],
   templateUrl: 'node_state_badge.ng.html',

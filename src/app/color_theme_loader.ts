@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 import {DOCUMENT} from '@angular/common';
-import {Component, DestroyRef, Inject, ViewEncapsulation} from '@angular/core';
+import {Component, DestroyRef, Inject, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {combineLatest, fromEvent, Observable} from 'rxjs';
 import {distinctUntilChanged, map, startWith} from 'rxjs/operators';
@@ -25,7 +25,7 @@ import {STATE_SERVICE_PROVIDER} from './dag-state.service.provider';
 import {Theme} from './data_types_internal';
 
 @Component({
-  selector: 'workflow-graph-color-theme-loader',
+  changeDetection: ChangeDetectionStrategy.Eager,selector: 'workflow-graph-color-theme-loader',
   template: '',
   styleUrls: ['./color_theme_loader.scss'],
   standalone: true,

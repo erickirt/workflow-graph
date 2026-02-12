@@ -17,7 +17,7 @@
 
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {Component, ElementRef, Input, NgModule, TemplateRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Input, NgModule, TemplateRef, ViewChild, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatOptionModule} from '@angular/material/core';
@@ -199,7 +199,7 @@ function getAllSelectableNestedNodesAndGroups(
 
 /** Demo component for directed acyclic graph view. */
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   selector: 'dag-demo-page',
   styleUrls: [
     'demo_page.scss',

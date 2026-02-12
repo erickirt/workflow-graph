@@ -16,7 +16,7 @@
  */
 
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {Component, Input} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ScreenshotTest} from '../screenshot_test';
@@ -118,7 +118,7 @@ describe('Node State Badge', () => {
 });
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template:
       '<ai-dag-node-state-badge #badge [nodeState]="nodeState"></ai-dag-node-state-badge>',
   jit: true,

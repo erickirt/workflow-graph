@@ -17,7 +17,7 @@
 
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {Component, EventEmitter, Input, NgModule, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, NgModule, Output, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 
 import {defaultFeatures, type Logger} from './data_types_internal';
 import {type DagreOptions, DirectedAcyclicGraph, DirectedAcyclicGraphModule, type MinimapPosition} from './directed_acyclic_graph';
@@ -31,7 +31,7 @@ import {type DagSpec, WorkflowGraphProps} from './workflow_graph_wrapper_types';
  * Wrapper for DirectedAcyclicGraph.
  */
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   selector: 'workflow-graph',
   template: `
   <ai-dag-scaffold [features]="features" [userConfig]="userConfig" (userConfigChange)="userConfigChange.next($event)">

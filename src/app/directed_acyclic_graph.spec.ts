@@ -17,7 +17,7 @@
 
 import {CdkDragMove} from '@angular/cdk/drag-drop';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {Component, EventEmitter, Input, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {ComponentFixture, fakeAsync, flush, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {ScreenshotTest} from '../screenshot_test';
@@ -294,7 +294,7 @@ describe('Directed Acyclic Graph Renderer', () => {
 });
 
 @Component({
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,standalone: false,
   template: `
     <div class="container">
       <ai-dag-renderer #dagRender
