@@ -163,6 +163,41 @@ describe('Directed Acyclic Graph Raw', () => {
              jasmine.objectContaining({from: 'BigTable', to: 'AutoML Tables'}));
        }));
 
+    it('Correctly sends click events for edge labels inside a sub-dag',
+       waitForAsync(async () => {
+         const groupEdge: DagEdge = {
+           from: 'inner1',
+           to: 'inner2',
+           label: 'inner-edge-label',
+         };
+         const groupNode = new DagGroup(
+             'group1',
+             [
+               new DagNode('inner1', 'execution'),
+               new DagNode('inner2', 'execution'),
+             ],
+             [groupEdge],
+         );
+
+         groupNode.expanded = true;
+         fixture.componentInstance.graph = {
+           nodes: [],
+           edges: [],
+           groups: [groupNode],
+         };
+         fixture.detectChanges();
+         await fixture.whenStable();
+         fixture.componentInstance.dagRaw.updateGraphLayout();
+         fixture.componentInstance.dagRaw.detectChanges();
+         const spy = jasmine.createSpy('edgeLabelClick');
+         fixture.componentInstance.dagRaw.edgeLabelClick.subscribe(spy);
+         const edgeLabel = await harness.getEdgeLabel('inner-edge-label');
+         await edgeLabel.click();
+
+         expect(spy).toHaveBeenCalledWith(
+             jasmine.objectContaining({from: 'inner1', to: 'inner2'}));
+       }));
+
     // SKIP-PUBLIC
     xit('Groups with expanded attribute are expanded on load',
        waitForAsync(async () => {

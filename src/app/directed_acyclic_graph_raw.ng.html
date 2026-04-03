@@ -365,6 +365,7 @@
           [edges]="group.edges"
           [groups]="group.groups"
           (graphResize)="storeSubDagDims($event, group)"
+          (edgeLabelClick)="edgeLabelClick.emit($event)"
           [resolveReference]="resolveReference"
           [visible]="isGroupExpanded(group)"
         ></ai-dag-raw>
@@ -377,6 +378,7 @@
             [sizeConfig]="sizeConfig"
             [nodes]="[group._cachedSelection]"
             (graphResize)="storeSubDagDims($event, group)"
+            (edgeLabelClick)="edgeLabelClick.emit($event)"
             [resolveReference]="resolveReference"
             [visible]="isGroupExpanded(group)"
           ></ai-dag-raw>
@@ -390,6 +392,7 @@
             [edges]="group._cachedSelection.edges"
             [groups]="group._cachedSelection.groups"
             (graphResize)="storeSubDagDims($event, group)"
+            (edgeLabelClick)="edgeLabelClick.emit($event)"
             [resolveReference]="resolveReference"
             [visible]="isGroupExpanded(group)"
           ></ai-dag-raw>
